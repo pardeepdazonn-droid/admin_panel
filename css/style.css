@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #f4f6f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bg-quiteclear {
+    background-color: #f2f2f2 !important;
+}
+
+.bg-Lushforest {
+    background-color: #e2e9ef !important;
+}
+
+
+.sidebar {
+    background-color: #264653;
+    color: #e9ecef;
+    min-height: 100vh;
+    padding: 20px;
+    font-weight: 600;
+}
+
+.sidebar a {
+    color: #e9ecef;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+.sidebar a i {
+    font-size: 18px;
+}
+
+.content {
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+}
+
+h3.section-title {
+    border-left: 6px solid #2a9d8f;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    color: #264653;
+    font-weight: 700;
+}
+
+table thead {
+    background-color: #2a9d8f;
+    color: white;
+}
+
+table tbody tr:hover {
+    background-color: #e0f2f1;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.product-card {
+    transition: transform .2s, box-shadow .2s;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+    background: #fff;
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e63946;
+}
+
+.comp-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.discount {
+    color: #2a9d8f;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.btn-warning {
+    font-weight: 600;
+}
+
+.btn-outline-primary {
+    font-weight: 600;
+}
+
+.footer {
+    background: #212529;
+    color: #bbb;
+    padding: 15px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.product-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+.comp-price {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.discount {
+    color: green;
+}
+
+.dashboard-container {
+    min-height: 100vh !important;
+}
+
+.dashboard-sidebar {
+    border-right: 1px solid #dee2e6;
+}
+
+.dashboard-sidebar .nav-link {
+    color: #fff;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.dashboard-sidebar .nav-link:hover,
+.dashboard-sidebar .nav-link.active {
+    background-color: #495057;
+    border-radius: 8px;
+}
+
+.dashboard-sidebar .submenu-item {
+    color: #adb5bd;
+}
+
+.dashboard-sidebar .submenu-item:hover {
+    color: #fff;
+}
+
+/* Cards style */
+.dashboard-main .card {
+    border-radius: 12px;
+}
+
+.dashboard-main h5 {
+    font-weight: 600;
+}
+
+.wraper {
+    background: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.success-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+}
+
+.success-card .icon {
+    font-size: 60px;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.success-card h1 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.success-card p {
+    font-size: 1.1rem;
+    color: #6c757d;
+    margin-bottom: 25px;
+}
+
+.success-card a {
+    text-decoration: none;
+}
+
+/* Scroll for main content on smaller screens */
+@media (max-width: 991px) {
+    .sidebar {
+        height: auto;
+        min-height: unset;
+    }
+
+    .content {
+        height: auto;
+    }
+}
