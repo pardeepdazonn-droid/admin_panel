@@ -4,7 +4,6 @@ include('header/header.php');
 include_once('header/nav.php');
 require_once 'product_model.php';
 require_once 'conn.php';
-
 if (!isset($_SESSION['user_id'])) {
     die("You must be logged in to view this page.");
 }
@@ -31,8 +30,36 @@ $product = getProductById($product_id);
 if (!$product)
     die("Product not found");
 
-$quantity = 1;
-$total_price = $product['price'] * $quantity;
+$quantity = $_POST['quantity'];
+$total_product_price = $product['price'] * $quantity;
+ 
+function gst_include($total_product_price){
+    $after_gst=$total_product_price+($total_product_price*18/100);
+    return $after_gst;
+}
+$gst_include_price=gst_include($total_product_price);
+ 
+$customer_address = $address['city']; 
+$customer_address = $address['address_line1'] . ', ' . 
+                    $address['address_line2'] . ', ' . 
+                    $address['city'] . ', ' . 
+                    $address['state'] . ', ' . 
+                    $address['postal_code'] . ', ' . 
+                    $address['country'];
+
+include('distence.php'); 
+
+$discount=$product['discount'];
+ 
+function total($total_product_price, $shipping_fee, $discount, $gst_include_price){
+
+    $total=($shipping_fee+$gst_include_price)-$discount;
+    return $total;
+
+}
+$total_price=total($total_product_price, $shipping_fee, $discount, $gst_include_price);
+ 
+
 ?>
 
 <div class="container py-5">
@@ -49,7 +76,12 @@ $total_price = $product['price'] * $quantity;
                             <h5 class="mb-1"><?= htmlspecialchars($product['name']) ?></h5>
                             <p class="mb-1 text-muted">Brand: <?= htmlspecialchars($product['brand']) ?></p>
                             <p class="mb-1 text-muted">Category: <?= htmlspecialchars($product['category']) ?></p>
-                            <p class="mb-0"><strong>Price:</strong> $<?= number_format($product['price'], 2) ?></p>
+                            <p class="mb-0"><strong>Sub Total:</strong> <?= number_format($total_product_price, 2) ?></p>
+                            <p class="mb-0"><strong>Gst include:</strong>18%</p>
+                            <p class="mb-0"><strong>Shipping fee:</strong> <?= number_format($shipping_fee, 2) ?></p>
+                            <p class="mb-0"><strong>Discount:</strong> <?= number_format($product['discount'], 2) ?></p>
+                            <p class="mb-0"><strong>Total:</strong> <?= number_format($total_price, 2) ?></p>
+                            
                         </div>
                     </div>
                 </div>
@@ -99,10 +131,7 @@ $total_price = $product['price'] * $quantity;
         <div class="col-md-6 text-center">
             <form method="POST" action="payment_script.php">
                 <input type="hidden" name="product_id" value="<?= $product_id ?>">
-                <div class="mb-3 d-flex justify-content-center">
-                    <label for="qty" class="form-label me-2 mb-0 fw-semibold">Quantity:</label>
-                    <input type="number" name="quantity" id="qty" value="<?= $quantity ?>" min="1" class="form-control" style="width:100px;">
-                </div>
+                <input type="hidden" name="quantity" value="<?= $quantity?>">
                 <button type="submit" class="btn btn-success btn-lg w-100">
                     <i class="bi bi-bag-check-fill"></i> Place Order
                 </button>
