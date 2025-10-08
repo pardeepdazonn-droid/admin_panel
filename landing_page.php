@@ -10,92 +10,107 @@ include_once('fetch_tableData.php');
             </div>
             <nav>
                 <ul class="list-unstyled">
-                    <li><a href="#dashboard" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
-                    <li><a href="#demo" class="menu-item" data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="demo"><i class="bi bi-box-seam"></i> Products</a>
-                        <ul class="collapse list-unstyled submenu ps-2 mb-3" id="demo">
-                            <li><a href="#products-list" class="submenu-item d-block py-1 load-content"
-                                    data-page="product_list.php"><i class="bi bi-list-ul"></i> Product List</a></li>
-                            <li><a href="#add-product" class="submenu-item d-block py-1 load-content"
-                                    data-page="add_product.php"><i class="bi bi-plus-circle"></i> Add
-                                    Product</a></li>
-                            <li><a href="#categories" class="submenu-item d-block py-1 load-content"
-                                    data-page="add_category.php"><i class="bi bi-grid "></i>
-                                    Add Categories</a></li>
-                            <li><a href="#brands" class="submenu-item d-block py-1 load-content"
-                                    data-page="add_brands.php"><i class="bi bi-tags"></i>
-                                    Brands</a></li>
-                        </ul>
+
+                    <!-- Dashboard -->
+                    <li class="nav-item">
+                        <a href="#dashboard" class="nav-link active text-light"><i class="bi bi-speedometer2 me-2"></i>
+                            Dashboard</a>
                     </li>
-                    <li><a href="#orders" class="menu-item" data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="orders"><i class="bi bi-receipt-cutoff"></i> Orders</a>
-                        <ul class="collapse list-unstyled submenu ps-2 mb-3" id="orders">
-                            <li><a href="#all-orders" class="submenu-item d-block py-1 load-content"
-                                    data-page="order.php"><i class="bi bi-list-check"></i> All Orders</a></li>
-                            <li><a href="#pending-orders" class="submenu-item d-block py-1 load-content"
-                                    data-page="panding_order.php"><i class="bi bi-clock-history"></i> Pending
-                                    Orders</a></li>
-                            <li><a href="#shipped-orders" class="submenu-item d-block py-1 text-truncate load-content"
-                                    data-page="shipping_order.php"><i class="bi bi-truck"></i> Shipped Orders</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#customers" class="menu-item " data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="customers"><i class="bi bi-people"></i> Customers</a>
-                        <ul class="submenu ps-2 mb-3 collapse list-unstyled" id="customers">
-                            <a href="#customer-list" class="submenu-item d-block py-1 load-content"
-                                data-page="users.php"><i class="bi bi-list"></i>
-                                Customer
-                                List</a>
-                            <a href="#feedback" class="submenu-item d-block py-1"><i class="bi bi-chat-dots"></i>
-                                Feedback</a>
-                        </ul>
-                    </li>
-                    <li><a href="#marketing" class="menu-item" data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="marketing"><i class="bi bi-megaphone"></i> Marketing</a>
-                        <ul class="submenu ps-4 mb-3 list-unstyled collapse" id="marketing">
-                            <a href="#coupons" class="submenu-item d-block py-1"><i class="bi bi-ticket-perforated"></i>
-                                Coupons</a>
-                            <a href="#promotions" class="submenu-item d-block py-1"><i class="bi bi-bullhorn"></i>
-                                Promotions</a>
-                        </ul>
-                    </li>
-                    <li><a href="#reports" class="menu-item"><i class="bi bi-bar-chart-line"></i> Reports</a></li>
-                    <li><a href="#settings" class="menu-item" data-bs-toggle="collapse" data-bs-target="#settings"
-                            aria-expanded="false" aria-controls="settings">
-                            <i class="bi bi-gear"></i> Settings
+
+                    <!-- Products -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#productsMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-box-seam me-2"></i> Products</span>
+                            <i class="bi bi-chevron-down"></i>
                         </a>
-                        <ul class="submenu ps-2 mb-3 collapse list-unstyled" id="settings">
-                            <li><a href="#store-settings" class="submenu-item d-block py-1"><i class="bi bi-shop"></i>
-                                    Store
-                                    Settings</a></li>
-                            <li><a href="#payment-settings" class="submenu-item d-block py-1"><i
-                                        class="bi bi-credit-card"></i>
-                                    Payment Settings</a></li>
-                            <li><a href="#shipping-settings" class="submenu-item d-block py-1"><i
-                                        class="bi bi-truck"></i>
-                                    Shipping
-                                    Settings</a></li>
+                        <ul class="collapse list-unstyled ps-3" id="productsMenu">
+                            <li><a href="product_list.php" class="nav-link py-1 load-content">Product List</a></li>
+                            <li><a href="add_product.php" class="nav-link py-1 load-content">Add Product</a></li>
+                            <li><a href="add_category.php" class="nav-link py-1 load-content">Add Categories</a></li>
+                            <li><a href="add_brands.php" class="nav-link py-1 load-content">Brands</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#admins" class="menu-item" data-bs-toggle="collapse" aria-expanded="false"
-                            aria-controls="admins"><i class="bi bi-person-badge"></i> Role</a>
-                        <ul class="submenu ps-4 mb-3 list-unstyled collapse" id="admins">
-                            <li>
-                                <a href="#sub-admin" class="submenu-item d-block py-1 load-content"
-                                    data-page="sub_adminForm.php">
-                                    <i class="bi bi-person"></i> Sub Admin
-                                </a>
-                            </li>
+
+                    <!-- Orders -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#ordersMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-receipt-cutoff me-2"></i> Orders</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse list-unstyled ps-3" id="ordersMenu">
+                            <li><a href="order.php" class="nav-link py-1 load-content">All Orders</a></li>
+                            <li><a href="panding_order.php" class="nav-link py-1 load-content">Pending Orders</a></li>
+                            <li><a href="shipping_order.php" class="nav-link py-1 load-content">Shipped Orders</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="mt-auto text-white"><i class="bi bi-person"></i> Profile</a></li>
-                    <li><a href="logout.php" class="mt-auto text-danger"><i class="bi bi-box-arrow-right"></i>
-                            Logout</a>
+
+                    <!-- Customers -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#customersMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-people me-2"></i> Customers</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse list-unstyled ps-3" id="customersMenu">
+                            <li><a href="users.php" class="nav-link py-1 load-content">Customer List</a></li>
+                            <li><a href="#" class="nav-link py-1">Feedback</a></li>
+                        </ul>
                     </li>
+
+                    <!-- Marketing -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#marketingMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-megaphone me-2"></i> Marketing</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse list-unstyled ps-3" id="marketingMenu">
+                            <li><a href="#" class="nav-link py-1">Coupons</a></li>
+                            <li><a href="#" class="nav-link py-1">Promotions</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Reports -->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-light"><i class="bi bi-bar-chart-line me-2"></i> Reports</a>
+                    </li>
+
+                    <!-- Settings -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#settingsMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-gear me-2"></i> Settings</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse list-unstyled ps-3" id="settingsMenu">
+                            <li><a href="#" class="nav-link py-1">Store Settings</a></li>
+                            <li><a href="#" class="nav-link py-1">Payment Settings</a></li>
+                            <li><a href="#" class="nav-link py-1">Shipping Settings</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Roles -->
+                    <li class="nav-item">
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" href="#rolesMenu" role="button" aria-expanded="false">
+                            <span><i class="bi bi-person-badge me-2"></i> Role</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="collapse list-unstyled ps-3" id="rolesMenu">
+                            <li><a href="sub_adminForm.php" class="nav-link py-1 load-content">Sub Admin</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Profile / Logout -->
+                    <li class="mt-auto"><a href="#" class="nav-link text-light"><i class="bi bi-person me-2"></i>
+                            Profile</a></li>
+                    <li><a href="logout.php" class="nav-link text-danger"><i class="bi bi-box-arrow-right me-2"></i>
+                            Logout</a></li>
                 </ul>
             </nav>
+
         </div>
         <div class="col-lg-10 content" id="main-content">
             <section id="dashboard" class="mb-5">
