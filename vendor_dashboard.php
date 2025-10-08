@@ -1,6 +1,19 @@
 <?php
+session_start();
+// Prevent browser caching
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: 0");
+ 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: vendors.php");
+    exit;
+}
+
 include('header/header.php');
 include_once('fetch_tableData.php');
+
 ?>
 <div class="dashboard-container d-flex overflow-x-hidden">
     <!-- Sidebar -->
@@ -98,7 +111,7 @@ include_once('fetch_tableData.php');
                 </li>
 
                 <li><a href="#" class="nav-link mt-auto"><i class="bi bi-person me-2"></i> Profile</a></li>
-                <li><a href="logout.php" class="nav-link text-danger mt-auto"><i class="bi bi-box-arrow-right me-2"></i>
+                <li><a href="vendors_logout.php" class="nav-link text-danger mt-auto"><i class="bi bi-box-arrow-right me-2"></i>
                         Logout</a></li>
             </ul>
         </nav>

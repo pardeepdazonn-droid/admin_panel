@@ -60,7 +60,7 @@ if (!$product) die("Product not found");
             </form>
 
             <div class="mt-3">
-                <a href="product.php" class="text-decoration-none">&larr; Back to products</a>
+                <a href="index.php" class="text-decoration-none">&larr; Back to products</a>
             </div>
         </div>
     </div>
