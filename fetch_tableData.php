@@ -55,4 +55,39 @@ function getPendingOrder($conn){
   return$pending;
 }
 
+
+// fetch category with subcategory
+
+$sql = "
+SELECT 
+    c.category_id,
+    c.category_name,
+    c.image,
+    s.subcategory_id,
+    s.subcategory_name
+FROM product_category c
+LEFT JOIN sub_category s 
+    ON c.category_id = s.category_id
+ORDER BY c.category_name, s.subcategory_name
+";
+
+$result = $conn->query($sql);
+
+$categories_data = [];
+
+while ($row = $result->fetch_assoc()) {
+    $cat_name = $row['category_name'];
+    $cat_image = $row['image'];
+    $sub_name = $row['subcategory_name'];
+    if (!isset($categories_data[$cat_name])) {
+        $categories_data[$cat_name] = [
+            'image' => $cat_image,
+            'subcategories' => []
+        ];
+    }
+    if ($sub_name) {
+        $categories_data[$cat_name]['subcategories'][] = $sub_name;
+    }
+}
+
 ?>

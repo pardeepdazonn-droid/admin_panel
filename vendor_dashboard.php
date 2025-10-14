@@ -36,6 +36,8 @@ include_once('fetch_tableData.php');
                     <li><a href="#" class="nav-link load-content" data-page="product_list.php">Product List</a></li>
                     <li><a href="#" class="nav-link load-content" data-page="add_product.php">Add Product</a></li>
                     <li><a href="#" class="nav-link load-content" data-page="add_category.php">Categories</a></li>
+                    <li><a href="#" class="nav-link load-content" data-page="sub_category.php"> Sub Categories</a></li>
+                    <li><a href="#" class="nav-link py-1 load-content" data-page="add_brands.php">Brands</a></li>
                 </ul>
             </li>
 

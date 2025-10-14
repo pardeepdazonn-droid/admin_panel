@@ -19,49 +19,49 @@ include_once('fetch_tableData.php');
 
                     <!-- Products -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#productsMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-box-seam me-2"></i> Products</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="collapse list-unstyled ps-3" id="productsMenu">
-                            <li><a href="product_list.php" class="nav-link py-1 load-content">Product List</a></li>
-                            <li><a href="add_product.php" class="nav-link py-1 load-content">Add Product</a></li>
-                            <li><a href="add_category.php" class="nav-link py-1 load-content">Add Categories</a></li>
-                            <li><a href="add_brands.php" class="nav-link py-1 load-content">Brands</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content"data-page="product_list.php">Product List</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="add_product.php">Add Product</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="add_category.php">Add Categories</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="add_brands.php">Brands</a></li>
                         </ul>
                     </li>
 
                     <!-- Orders -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#ordersMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-receipt-cutoff me-2"></i> Orders</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="collapse list-unstyled ps-3" id="ordersMenu">
-                            <li><a href="order.php" class="nav-link py-1 load-content">All Orders</a></li>
-                            <li><a href="panding_order.php" class="nav-link py-1 load-content">Pending Orders</a></li>
-                            <li><a href="shipping_order.php" class="nav-link py-1 load-content">Shipped Orders</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="order.php">All Orders</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="panding_order.php">Pending Orders</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="shipping_order.php">Shipped Orders</a></li>
                         </ul>
                     </li>
 
                     <!-- Customers -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#customersMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-people me-2"></i> Customers</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="collapse list-unstyled ps-3" id="customersMenu">
-                            <li><a href="users.php" class="nav-link py-1 load-content">Customer List</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="users.php">Customer List</a></li>
                             <li><a href="#" class="nav-link py-1">Feedback</a></li>
                         </ul>
                     </li>
 
                     <!-- Marketing -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#marketingMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-megaphone me-2"></i> Marketing</span>
                             <i class="bi bi-chevron-down"></i>
@@ -79,7 +79,7 @@ include_once('fetch_tableData.php');
 
                     <!-- Settings -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#settingsMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-gear me-2"></i> Settings</span>
                             <i class="bi bi-chevron-down"></i>
@@ -93,13 +93,13 @@ include_once('fetch_tableData.php');
 
                     <!-- Roles -->
                     <li class="nav-item">
-                        <a class="nav-link text-light d-flex justify-content-between align-items-center"
+                        <a class="nav-link text-light d-flex justify-content-between align-items-center collapsed"
                             data-bs-toggle="collapse" href="#rolesMenu" role="button" aria-expanded="false">
                             <span><i class="bi bi-person-badge me-2"></i> Role</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
                         <ul class="collapse list-unstyled ps-3" id="rolesMenu">
-                            <li><a href="sub_adminForm.php" class="nav-link py-1 load-content">Sub Admin</a></li>
+                            <li><a href="#" class="nav-link py-1 load-content" data-page="sub_adminForm.php">Sub Admin</a></li>
                         </ul>
                     </li>
 

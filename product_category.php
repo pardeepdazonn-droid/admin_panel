@@ -22,11 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response['message'] = "File size exceeds limit (5MB)";
         } else {
             $new_image_name = uniqid() . '.' . $image_ext;
-            $upload_dir = 'uploads/';
+            $upload_dir = 'uploads/category/';
             $destination = $upload_dir . $new_image_name;
 
             if (move_uploaded_file($image_tmp_name, $destination)) {
-                $image_path = $new_image_name;
+                $image_path = $destination;
             } else {
                 $response['message'] = "Failed to upload image.";
             }

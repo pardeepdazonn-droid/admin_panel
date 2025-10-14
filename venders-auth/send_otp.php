@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
+    $email = $_POST['email'];
 
     if (empty($email)) {
         echo json_encode(["error" => "Email is required"]);

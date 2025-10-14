@@ -239,6 +239,134 @@ table tbody tr:hover {
 .success-card a {
     text-decoration: none;
 }
+/* Container */
+/* .menu-container {
+  justify-content: center;
+} */
+
+.menu {
+  background: #fff !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 10px 0;
+}
+
+.menu:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+ 
+.menu img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+ 
+.menu a.d-block {
+  font-size: 14px;
+  color: #333 !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.menu a.d-block:hover {
+  color: #2874f0 !important;  
+}
+
+ 
+.menu ul.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff !important;
+  min-width: 180px;
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1) !important;
+  padding: 10px 0;
+  z-index: 999;
+}
+
+.menu:hover ul.dropdown {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+ 
+.menu ul.dropdown li {
+  padding: 8px 15px;
+  white-space: nowrap;
+}
+
+.menu ul.dropdown li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.menu ul.dropdown li a:hover {
+  color: #2874f0 !important;
+}
+
+ 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+ 
+@media (max-width: 992px) {
+  .menu img {
+    width: 50px;
+    height: 50px;
+  }
+  .menu a.d-block {
+    font-size: 12px;
+  }
+  .menu ul.dropdown {
+    min-width: 140px;
+  }
+}
+.ecommerce-footer h5 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.ecommerce-footer a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+    transition: color 0.2s;
+}
+
+.ecommerce-footer a:hover {
+    color: #1e90ff; /* Modern blue hover */
+}
+
+.ecommerce-footer p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.ecommerce-footer hr {
+    margin: 20px 0;
+    opacity: 0.3;
+}
+
+.ecommerce-footer small {
+    font-size: 13px;
+    color: #aaa;
+}
 
 /* Scroll for main content on smaller screens */
 @media (max-width: 991px) {
