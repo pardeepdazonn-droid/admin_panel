@@ -11,10 +11,10 @@ $products = getAllProducts();
     <div class="row justify-content-center w-100">
       <?php foreach ($categories_data as $category => $data): ?>
         <div class="col text-center" style="flex: 0 0 100px;">
-          <div class="menu position-relative text-center">
+          <div class="menu position-relative text-center pb-1">
             <img src="<?= htmlspecialchars($data['image']) ?>" alt="<?= htmlspecialchars($category) ?>">
             <a href="#" class="d-block fw-semibold"><?= htmlspecialchars($category) ?></a>
-            <ul class="dropdown list-unstyled mt-2">
+            <ul class="dropdown list-unstyled z-3">
               <?php foreach ($data['subcategories'] as $sub): ?>
                 <li><a href="#"><?= htmlspecialchars($sub) ?></a></li>
               <?php endforeach; ?>
@@ -101,37 +101,79 @@ $products = getAllProducts();
 </form>
 </div>
     <div class="col-10">
-      <div id="response"></div>
-      <h3 class="mb-4 fw-bold"><i class="bi bi-grid"></i> All Products</h3>
-      <div class="row g-4">
-        <?php foreach ($products as $p): ?>
-          <div class="col-sm-6 col-md-4 col-lg-3">
-            <div class="card product-card h-100">
-              <img src="<?= htmlspecialchars($p['image']) ?>" class="card-img-top"
-                alt="<?= htmlspecialchars($p['name']) ?>">
-              <div class="card-body d-flex flex-column">
-                <h6 class="card-title"><?= htmlspecialchars($p['name']) ?></h6>
-                <p class="mb-1">
-                  <span class="price">$<?= $p['price'] ?></span>
-                  <span class="comp-price">$<?= $p['comp_price'] ?></span>
-                  <span class="discount">(<?= $p['discount'] ?>% off)</span>
-                </p>
-                <p class="text-muted small mb-3"><i class="bi bi-truck"></i> <?= htmlspecialchars($p['delivery_time']) ?>
-                </p>
-                <div class="mt-auto d-flex justify-content-between">
-                  <a href="buy.php?id=<?= $p['product_id'] ?>" class="btn btn-sm btn-warning">
-                    <i class="bi bi-lightning-charge-fill"></i> Buy Now
-                  </a>
-                  <button class="btn btn-sm btn-outline-primary add-to-cart" data-id="<?= $p['product_id'] ?>">
-                    <i class="bi bi-cart-plus"></i> Add to Cart
-                  </button>
-                </div>
-              </div>
+  <h3 class="mb-4 fw-bold d-flex align-items-center gap-2">
+    <i class="bi bi-grid"></i> 
+    <span id="productHeading">All Products</span>
+  </h3>
+
+   
+  <div id="response" class="row g-4">
+    <?php foreach ($products as $p): ?>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card product-card h-100 shadow-sm border-0 z-n1">
+          <img src="<?= htmlspecialchars($p['image']) ?>" class="card-img-top rounded-top"
+               alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h6 class="card-title text-truncate" title="<?= htmlspecialchars($p['name']) ?>">
+              <?= htmlspecialchars($p['name']) ?>
+            </h6>
+
+            <p class="mb-1">
+              <span class="price fw-bold text-success">$<?= $p['price'] ?></span>
+              <span class="comp-price text-muted text-decoration-line-through ms-1">$<?= $p['comp_price'] ?></span>
+              <span class="discount text-danger ms-1">(<?= $p['discount'] ?>% off)</span>
+            </p>
+
+            <p class="text-muted small mb-3">
+              <i class="bi bi-truck"></i> <?= htmlspecialchars($p['delivery_time']) ?>
+            </p>
+
+            <div class="mt-auto d-flex justify-content-between">
+              <a href="buy.php?id=<?= $p['product_id'] ?>" class="btn btn-sm btn-warning">
+                <i class="bi bi-lightning-charge-fill"></i> Buy Now
+              </a>
+              <button class="btn btn-sm btn-outline-primary add-to-cart" data-id="<?= $p['product_id'] ?>">
+                <i class="bi bi-cart-plus"></i> Add to Cart
+              </button>
             </div>
           </div>
-        <?php endforeach; ?>
+        </div>
       </div>
-    </div>
+    <?php endforeach; ?>
+  </div>
+
+   
+  <div id="allProductsBackup" class="d-none">
+    <?php foreach ($products as $p): ?>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card product-card h-100 shadow-sm border-0">
+          <img src="<?= htmlspecialchars($p['image']) ?>" class="card-img-top rounded-top"
+               alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy">
+          <div class="card-body d-flex flex-column">
+            <h6 class="card-title text-truncate"><?= htmlspecialchars($p['name']) ?></h6>
+            <p class="mb-1">
+              <span class="price fw-bold text-success">$<?= $p['price'] ?></span>
+              <span class="comp-price text-muted text-decoration-line-through ms-1">$<?= $p['comp_price'] ?></span>
+              <span class="discount text-danger ms-1">(<?= $p['discount'] ?>% off)</span>
+            </p>
+            <p class="text-muted small mb-3">
+              <i class="bi bi-truck"></i> <?= htmlspecialchars($p['delivery_time']) ?>
+            </p>
+            <div class="mt-auto d-flex justify-content-between">
+              <a href="buy.php?id=<?= $p['product_id'] ?>" class="btn btn-sm btn-warning">
+                <i class="bi bi-lightning-charge-fill"></i> Buy Now
+              </a>
+              <button class="btn btn-sm btn-outline-primary add-to-cart" data-id="<?= $p['product_id'] ?>">
+                <i class="bi bi-cart-plus"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</div>
+
   </div>
 </div>
 <script src="//code.tidio.co/tg2mcpylcfn6w6mh0p4yi3v8lswbhycn.js" async></script>
