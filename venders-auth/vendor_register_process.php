@@ -1,7 +1,6 @@
 <?php
 session_start();
 require '../conn.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -15,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-
+    
     if (!isset($_SESSION['email_verified']) || $_SESSION['email_verified'] !== true) {
         $_SESSION['error'] = "Please verify your email before registering.";
         header("Location: vendor_register_process.php");

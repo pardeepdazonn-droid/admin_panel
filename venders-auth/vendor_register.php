@@ -55,85 +55,95 @@ include('../header/header.php');
 
                             <button type="submit" class="btn btn-success w-100 py-2 mt-2">Register</button>
                         </form>
+                        <div class="my-5 d-flex justify-content-center">
+                            <div id="g_id_onload"
+                                data-client_id="451297895339-qhuur4oh5cu29c80u5nmu70jab61sj1b.apps.googleusercontent.com"
+                                data-login_uri="http://localhost/ecommerce-panel/auth/callback.php"
+                                data-auto_prompt="false">
+                            </div>
 
+                            <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+                                data-text="signin_with" data-size="large">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const sendOtpBtn = document.getElementById('sendOtpBtn');
-    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+    document.addEventListener('DOMContentLoaded', function () {
+        const sendOtpBtn = document.getElementById('sendOtpBtn');
+        const verifyOtpBtn = document.getElementById('verifyOtpBtn');
 
-    // --- SEND OTP ---
-    if (sendOtpBtn) {
-        sendOtpBtn.addEventListener('click', function () {
-            const email = document.getElementById('email').value.trim();
-            const otpStatus = document.getElementById('otpStatus');
-            otpStatus.innerHTML = '<span style="color:blue;">Sending OTP...</span>';
+        // --- SEND OTP ---
+        if (sendOtpBtn) {
+            sendOtpBtn.addEventListener('click', function () {
+                const email = document.getElementById('email').value.trim();
+                const otpStatus = document.getElementById('otpStatus');
+                otpStatus.innerHTML = '<span style="color:blue;">Sending OTP...</span>';
 
-            if (!email) {
-                otpStatus.innerHTML = '<span style="color:red;">Please enter your email first</span>';
-                return;
-            }
-
-            fetch('send_otp.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'email=' + encodeURIComponent(email)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    otpStatus.innerHTML = `<span style="color:green;">✅ ${data.message}</span>`;
-                    document.getElementById('otpSection').style.display = 'block';
-                } else {
-                    otpStatus.innerHTML = `<span style="color:red;">❌ ${data.error}</span>`;
+                if (!email) {
+                    otpStatus.innerHTML = '<span style="color:red;">Please enter your email first</span>';
+                    return;
                 }
-            })
-            .catch(() => {
-                otpStatus.innerHTML = '<span style="color:red;">⚠️ Failed to send OTP.</span>';
+
+                fetch('send_otp.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'email=' + encodeURIComponent(email)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            otpStatus.innerHTML = `<span style="color:green;">✅ ${data.message}</span>`;
+                            document.getElementById('otpSection').style.display = 'block';
+                        } else {
+                            otpStatus.innerHTML = `<span style="color:red;">❌ ${data.error}</span>`;
+                        }
+                    })
+                    .catch(() => {
+                        otpStatus.innerHTML = '<span style="color:red;">⚠️ Failed to send OTP.</span>';
+                    });
             });
-        });
-    }
+        }
 
-    // --- VERIFY OTP ---
-    if (verifyOtpBtn) {
-        verifyOtpBtn.addEventListener('click', function () {
-            const otp = document.getElementById('otp').value.trim();
-            const msg = document.getElementById('verifyStatus');
-            msg.innerHTML = '<span style="color:blue;">Verifying OTP...</span>';
+        // --- VERIFY OTP ---
+        if (verifyOtpBtn) {
+            verifyOtpBtn.addEventListener('click', function () {
+                const otp = document.getElementById('otp').value.trim();
+                const msg = document.getElementById('verifyStatus');
+                msg.innerHTML = '<span style="color:blue;">Verifying OTP...</span>';
 
-            if (!otp) {
-                msg.innerHTML = '<span style="color:red;">Please enter OTP</span>';
-                return;
-            }
-
-            fetch('verify_otp.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'otp=' + encodeURIComponent(otp)
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    msg.innerHTML = `<span style="color:green;">✅ ${data.message}</span>`;
-                    document.getElementById('otp').disabled = true;
-                    verifyOtpBtn.disabled = true;
-                    sendOtpBtn.disabled = true;
-                } else {
-                    msg.innerHTML = `<span style="color:red;">❌ ${data.error}</span>`;
+                if (!otp) {
+                    msg.innerHTML = '<span style="color:red;">Please enter OTP</span>';
+                    return;
                 }
-            })
-            .catch(() => {
-                msg.innerHTML = '<span style="color:red;">⚠️ Server error. Please try again.</span>';
+
+                fetch('verify_otp.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: 'otp=' + encodeURIComponent(otp)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            msg.innerHTML = `<span style="color:green;">✅ ${data.message}</span>`;
+                            document.getElementById('otp').disabled = true;
+                            verifyOtpBtn.disabled = true;
+                            sendOtpBtn.disabled = true;
+                        } else {
+                            msg.innerHTML = `<span style="color:red;">❌ ${data.error}</span>`;
+                        }
+                    })
+                    .catch(() => {
+                        msg.innerHTML = '<span style="color:red;">⚠️ Server error. Please try again.</span>';
+                    });
             });
-        });
-    }
-});
+        }
+    });
 </script>
 
 
